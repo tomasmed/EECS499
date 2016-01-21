@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\Proj1_Pokemon\Proj1_Pokemon\Assets\__Scripts\DialogScript.cs">
+    <Files>
+      <File FileName="..\..\Proj1_Pokemon\Proj1_Pokemon\Assets\__Scripts\DialogScript.cs" Line="64" Column="13" />
+      <File FileName="..\..\Proj1_Pokemon\Proj1_Pokemon\Assets\__Scripts\NPC.cs" Line="58" Column="29" />
+      <File FileName="..\..\Proj1_Pokemon\Proj1_Pokemon\Assets\__Scripts\Item.cs" Line="23" Column="44" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
