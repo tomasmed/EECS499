@@ -6,7 +6,9 @@ public class Movement : MonoBehaviour {
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
-    private Vector3 moveDirection = Vector3.zero;
+    private Vector3 vel = Vector3.zero;
+    Vector3 velX = Vector3.zero;
+    Vector3 velY = Vector3.zero;
 
     Rigidbody rigid;
     Transform trans;
@@ -20,7 +22,12 @@ public class Movement : MonoBehaviour {
     public int playerNum;
 
     string horizontalAxisStr = "";
-    KeyCode jumpKey;
+    public KeyCode jumpKey;
+
+    bool in_air = true;
+    bool jumping = false;
+
+    public int gravitySpeed;
 
     void Start()
     {
@@ -30,6 +37,8 @@ public class Movement : MonoBehaviour {
 
     void FixedUpdate()
     {
+        jumping = false;
+
         // Movement
         CharacterController controller = GetComponent<CharacterController>();
 
@@ -43,22 +52,24 @@ public class Movement : MonoBehaviour {
             horizontalAxisStr = "Horizontal2";
             jumpKey = KeyCode.UpArrow;
         }
-        
-        // is the controller on the ground?
-        if (controller.isGrounded)
+
+        // Feed moveDirection with input
+        float inputX = Input.GetAxis(horizontalAxisStr);
+        velX = trans.right * inputX;
+
+        // Jumping
+        if (Input.GetKeyDown(jumpKey))
         {
-            //Feed moveDirection with input.
-            moveDirection = new Vector3(Input.GetAxis(horizontalAxisStr), 0.0f, 0.0f);
-            //Multiply it by speed.
-            moveDirection *= speed;
-            //Jumping
-            if (Input.GetKeyDown(jumpKey))
-                moveDirection.y = jumpSpeed;
-            moveDirection = transform.TransformDirection(moveDirection);
+            in_air = true;
+            velY += Vector3.up * jumpSpeed;
         }
-        //Applying gravity to the controller
-        moveDirection.y -= gravity * Time.deltaTime;
-        //Making the character move
-        controller.Move(moveDirection * Time.deltaTime);
+
+        // Gravity
+        velY -= Vector3.up * gravitySpeed;
+
+        //Update character position
+        vel = velX.normalized * speed + velY.normalized;
+
+        rigid.velocity = vel;
     }
 }
