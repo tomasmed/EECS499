@@ -69,9 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Movement.cs" />
-    <Compile Include="Assets\calcPosition.cs" />
-    <Compile Include="Assets\ropeManager.cs" />
-    <Compile Include="Assets\swingManager.cs" />
+    <Compile Include="Assets\_Scripts\calcPosition.cs" />
+    <Compile Include="Assets\_Scripts\nonCharacterControllerMovement.cs" />
+    <Compile Include="Assets\_Scripts\ropeManager.cs" />
+    <Compile Include="Assets\_Scripts\swingManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
